@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="ProductsStyle.css" />
+    <link rel="stylesheet" href="./Login.css" />
+    <link rel="stylesheet" href="./Header_Footer.css" />
+  </head>
+
+  <body>
+    <div>
+      <header>
+        <div class="left">
+          <div class="logo">
+            <a href="./Home.html"
+              ><p><span>COZA</span> STORE</p></a
+            >
+          </div>
+          <nav>
+            <ul>
+              <li><a href="./Home.html">Home</a></li>
+              <li><a href="./ProductsPage.html">Shop</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="right">
+          <input
+            type="text"
+            class="search-input"
+            id="search-input"
+            placeholder="Search..."
+          />
+          <button><i class="bx bx-search" id="search-icon"></i></button>
+          <div class="cartContainer">
+            <a href="./cart.html"
+              ><i class="fa-solid fa-cart-shopping BigIcon">
+                <div id="badge"></div>
+              </i>
+              <div id="Price" style="display: none" class="Price"></div>
+            </a>
+          </div>
+          <button onclick="window.location.href='./Profile.html'">
+            <i class="bx bxs-user"></i>
+          </button>
+          <button class="mobileBurgerBtn" onclick="sideMenuHandler()">
+            <i class="bx bx-menu"></i>
+          </button>
+          <button class="mobileCloseBtn" onclick="closeSideMenuHandler()">
+            <i class="bx bx-x"></i>
+          </button>
+          <button class="login-btn">LOG IN</button>
+        </div>
+      </header>
+
+      <section class="mobile-nav">
+        <nav>
+          <ul>
+            <li><a href="./Home.html">Home</a></li>
+            <li><a href="./ProductsPage.html">Shop</a></li>
+            <li><a href="./Product_Categories.html">Categories</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <section class="categories-section">
+      <div class="main-container">
+        <div class="title-category">
+          <h1 style="color: white">Categories</h1>
+          <button class="close-btn">X</button>
+        </div>
+        <div class="categories-container"></div>
+      </div>
+    </section>
+
+    <section class="product-category-section">
+      <div class="main-product-category-section">
+        <div class="title-category-product">
+          <h1>Products</h1>
+          <button class="filter-btn">Filter</button>
+        </div>
+        <div id="filter-section" class="filter-section">
+          <div class="filter-btn-container">
+            <div class="filter-price-sort">
+              <label for="filter-price-sort">sort by</label>
+              <select id="filter-price-sort">
+                <option default value="0">none</option>
+                <option value="1">lower to higher</option>
+                <option value="2">higher to lower</option>
+              </select>
+              <div class="filter-price">
+                <label for="min-price">minimum price</label>
+                <input
+                  id="min-price"
+                  type="number"
+                  placeholder="min"
+                  max="50000"
+                  min="0"
+                />
+                <label from="max-price">maximum price</label>
+                <input
+                  id="max-price"
+                  type="number"
+                  placeholder="max"
+                  max="50000"
+                  min="0"
+                />
+              </div>
+              <div class="filter-categories">
+                <label for="filter-categories-select">categories</label>
+                <select id="filter-categories-select">
+                  <option default value="0">all</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-container">
+          <!-- <div class="card-product-container">
+                        <div class="product-image">
+                            <img src="${item.thumbnail}" alt="category-img" />
+                            <div class="add-cart-btn">
+                                <button>Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="category-style">
+                            <p>${item.category}</p>
+                        </div>
+                        <div class="product-name">
+                            <p>${item.title}</p>
+                        </div>
+                        <div class="product-price-rating">
+                            <p class="price">${item.price} $</p>
+                            <p>${item.rating} <i class="fa-regular fa-star"></i></p>
+                        </div>
+                    </div> -->
+        </div>
+      </div>
+    </section>
+    <nav class="navbar d-none">
+      <span class="hamburger-btn material-symbols-rounded">menu</span>
+      <ul class="links">
+        <span class="login-close-btn material-symbols-rounded">close</span>
+      </ul>
+    </nav>
+    <div class="backdrop"></div>
+    <div class="form-popup navbarLogin">
+      <span class="login-close-btn material-symbols-rounded">close</span>
+      <div class="form-box login">
+        <div class="form-details">
+          <h2>Welcome Back</h2>
+          <p>
+            Please log in using your personal information to stay connected with
+            us.
+          </p>
+        </div>
+        <div class="form-content">
+          <h2>LOGIN</h2>
+          <form>
+            <div class="input-field">
+              <input class="in-name" type="username" required />
+              <label> Enter your UserName </label>
+            </div>
+            <div class="input-field">
+              <input class="in-pass" type="password" required />
+              <label> password </label>
+            </div>
+            <button class="submit-btn" type="submit">Log In</button>
+          </form>
+          <div class="bottom-link">
+            Don't have an account?
+            <a href="#" id="signup-link">Signup</a>
+          </div>
+        </div>
+      </div>
+      <div class="form-box signup">
+        <div class="form-details">
+          <h2>Create Account</h2>
+          <p>
+            To become a part of our Website, please sign up using your personal
+            information.
+          </p>
+        </div>
+        <div class="form-content">
+          <h2>SIGNUP</h2>
+          <form action="#">
+            <div class="input-field">
+              <input class="up-mail" type="text" required />
+              <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+              <input class="up-pass" type="password" required />
+              <label>Create password</label>
+            </div>
+            <div class="policy-text">
+              <input type="checkbox" id="policy" />
+              <label for="policy">
+                I agree the
+                <a href="#" class="option">Terms & Conditions</a>
+              </label>
+            </div>
+            <button class="signup-btn" type="submit">Sign Up</button>
+          </form>
+          <div class="bottom-link">
+            Already have an account?
+            <a href="#" id="login-link">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footerContainer">
+        <div class="row">
+          <div class="footerCol">
+            <h4 class="colHeader">Categories</h4>
+            <ul>
+              <li class="colItem">
+                <a href="#" class="colLink"> Women </a>
+              </li>
+              <li class="colItem">
+                <a href="#" class="colLink"> Men </a>
+              </li>
+              <li class="colItem">
+                <a href="#" class="colLink"> Shoes </a>
+              </li>
+              <li class="colItem">
+                <a href="#" class="colLink"> Watches </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footerCol">
+            <h4 class="colHeader">Help</h4>
+            <ul>
+              <li class="colItem">
+                <a href="#" class="colLink"> Track Order </a>
+              </li>
+              <li class="colItem">
+                <a href="#" class="colLink"> Returns </a>
+              </li>
+              <li class="colItem">
+                <a href="#" class="colLink"> Shipping </a>
+              </li>
+              <li class="colItem">
+                <a href="#" class="colLink"> FAQs </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footerCol">
+            <h4 class="colHeader">GET IN TOUCH</h4>
+            <p>
+              Any questions? Let us know in store at Knowledge City,
+              New-Capital, Cairo, Egypt or call us on 17002
+            </p>
+          </div>
+          <div class="footerCol">
+            <h4 class="colHeader">NEWSLETTER</h4>
+            <form>
+              <div>
+                <input
+                  class="footerEmailInp"
+                  type="email"
+                  name="email"
+                  placeholder="email@example.com"
+                />
+              </div>
+              <div>
+                <button class="subBtn">SUBSCRIBE</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="CopyrightSection">
+          <p class="CopyrightPar">
+            Copyright © 2024 All rights reserved | This Website is made for ITi
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./LoginScript.js"></script>
+    <script src="./productDetails.js"></script>
+    <script src="ProductsScript.js"></script>
+  </body>
+</html>

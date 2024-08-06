@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="cart.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="./Login.css">
+<link rel="stylesheet" href="Header_Footer.css">
+<link
+href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+rel="stylesheet"
+/>
+    <title>Cart</title>
+</head>
+<body>
+    <div>
+        <header>
+          <div class="left">
+            <div class="logo">
+              <a href="./Home.html"
+              ><p><span>COZA</span> STORE</p></a
+            >
+            </div>
+            <nav>
+            <ul>
+              <li><a href="./Home.html">Home</a></li>
+              <li><a  href="./ProductsPage.html">Shop</a></li>
+              <li class="open-btn"><a href="./Product_Categories.html">Categories</a></li>
+            </ul>
+          </nav>
+
+          </div>
+          <div class="right">
+            <button>
+            <div class="cartContainer">
+              <a href="./cart.html"><i class="fa-solid fa-cart-shopping BigIcon">
+                      <div id="badge"></div>
+                  </i>
+                  <div id="Price" style="display: none;" class="Price"></div>
+              </a>
+            </div>
+            </button>
+            <button onclick = "window.location.href='./Profile.html'"><i class="bx bxs-user"></i></button>
+            <button class="mobileBurgerBtn" onclick="sideMenuHandler()">
+              <i class="bx bx-menu"></i>
+            </button>
+            <button class="mobileCloseBtn" onclick="closeSideMenuHandler()">
+              <i class="bx bx-x"></i>
+            </button>
+            <button class="login-btn">LOG IN</button>
+          </div>
+        </header>
+  
+        <section class="mobile-nav">
+          <nav>
+            <ul>
+              <li><a href="./Home.html">Home</a></li>
+              <li><a href="./ProductsPage.html">Shop</a></li>
+              <li><a href="./Product_Categories.html">Categories</a></li>
+            </ul>
+          </nav>
+        </section>
+      </div>
+<div class="Container">
+
+    <table class="CartTable">
+        <thead>
+            <th>Product</th>
+            <th></th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </thead>
+        <tbody class="CartGrid" >
+            <tr>
+                <td>
+                    <div class="CartItemImage">
+                        <img width="100" src="${CarItem[1].thumbnail}"> 
+                    </div>
+                </td>
+                <td><div class="ItemName">
+                    ${CarItem[1].title}</div></td>
+                <td><div class="CartTableCenter">${CarItem[1].price} E£</div></td>
+                <td><div class="CartTableCenter"><div class="CountControlContainer"><i onclick="DeleteFromCart(${CarItem[1].id})" class="fa-solid fa-minus borderedIcon CountControl"></i><input type="number" class="MidIcon borderedIcon " min="1" max="100" value="${CarItem[0]}"><i onclick="AddToCart(${CarItem[1].id})" class="fa-solid fa-plus borderedIcon CountControl"></i></div></td>
+                <td><div class="CartTableCenter">${CarItem[1].price * CarItem[0]} E£</div></td>
+            </tr>
+            <td>
+                <div class="CartItemImage">
+                    <img width="100" src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_1024x1024.jpg?v=1640022000"> 
+                </div>
+            </td>
+            <td><div class="ItemName">
+                Fresh Strawberries</div></td>
+            <td><div class="CartTableCenter">200.00 E£</div></td>
+            <td><div class="CartTableCenter"><div class="CountControlContainer"><i class="fa-solid fa-minus borderedIcon CountControl"></i><input type="number" class="MidIcon borderedIcon " value="1"><i class="fa-solid fa-plus borderedIcon CountControl"></i></div></td>
+            <td><div class="CartTableCenter">200</div></td>
+        </tr>
+        </tbody>
+      
+        
+    </table>
+    <div class="CartSums">
+        <div class="CartTotal">
+            <h4 class="CartTotalTitle">Cart Totals</h4>
+        </div>
+        <div class="FlexRow FinalFlex BorderTopDashed">
+            <div style="width: 34.5%; font-weight: bold;">Total: </div><div id="CartTotalSum">$0</div>
+        </div>
+        <button class=" btn-checkout">Checkout</button>
+    </div>
+</div>
+<nav class="navbar d-none">
+    <span class="hamburger-btn material-symbols-rounded">menu</span>
+    <ul class="links">
+        <span class="login-close-btn material-symbols-rounded">close</span>
+    </ul>
+   
+</nav>
+<div class="backdrop"></div>
+<div class="form-popup navbarLogin">
+    
+    <span class="login-close-btn material-symbols-rounded">close</span>
+    <div class="form-box login">
+        <div class="form-details">
+            <h2>Welcome Back</h2>
+            <p>Please log in using your personal information to stay connected with us.</p>
+        </div>
+        <div class="form-content">
+            <h2>LOGIN</h2>
+            <form >
+                <div class="input-field">
+                    <input class="in-name" type="username" required>
+                    <label> Enter your UserName </label>
+                </div>
+                <div class="input-field">
+                    <input class="in-pass" type="password" required>
+                    <label> password </label>
+                </div>
+                <button class="submit-btn" type="submit">Log In</button>
+            </form>
+            <div class="bottom-link">
+                Don't have an account?
+                <a href="#" id="signup-link">Signup</a>
+            </div>
+        </div>
+    </div>
+    <div class="form-box signup">
+        <div class="form-details">
+            <h2>Create Account</h2>
+            <p>To become a part of our Website, please sign up using your personal information.</p>
+        </div>
+        <div class="form-content">
+            <h2>SIGNUP</h2>
+            <form action="#">
+                <div class="input-field">
+                    <input class="up-mail" type="text" required>
+                    <label>Enter your email</label>
+                </div>
+                <div class="input-field">
+                    <input class="up-pass" type="password" required>
+                    <label>Create password</label>
+                </div>
+                <div class="policy-text">
+                    <input type="checkbox" id="policy">
+                    <label for="policy">
+                        I agree the
+                        <a href="#" class="option">Terms & Conditions</a>
+                    </label>
+                </div>
+                <button class="signup-btn" type="submit">Sign Up</button>
+            </form>
+            <div class="bottom-link">
+                Already have an account? 
+                <a href="#" id="login-link">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+  <div class="footerContainer">
+    <div class="row">
+      <div class="footerCol">
+        <h4 class="colHeader">Categories</h4>
+        <ul>
+          <li class="colItem">
+            <a href="#" class="colLink"> Women </a>
+          </li>
+          <li class="colItem">
+            <a href="#" class="colLink"> Men </a>
+          </li>
+          <li class="colItem">
+            <a href="#" class="colLink"> Shoes </a>
+          </li>
+          <li class="colItem">
+            <a href="#" class="colLink"> Watches </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footerCol">
+        <h4 class="colHeader">Help</h4>
+        <ul>
+          <li class="colItem">
+            <a href="#" class="colLink"> Track Order </a>
+          </li>
+          <li class="colItem">
+            <a href="#" class="colLink"> Returns </a>
+          </li>
+          <li class="colItem">
+            <a href="#" class="colLink"> Shipping </a>
+          </li>
+          <li class="colItem">
+            <a href="#" class="colLink"> FAQs </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footerCol">
+        <h4 class="colHeader">GET IN TOUCH</h4>
+        <p>
+          Any questions? Let us know in store at Knowledge City,
+          New-Capital, Cairo, Egypt or call us on 17002
+        </p>
+      </div>
+      <div class="footerCol">
+        <h4 class="colHeader">NEWSLETTER</h4>
+        <form>
+          <div>
+            <input
+              class="footerEmailInp"
+              type="email"
+              name="email"
+              placeholder="email@example.com"
+            />
+          </div>
+          <div>
+            <button class="subBtn">SUBSCRIBE</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="CopyrightSection">
+      <p class="CopyrightPar">
+        Copyright © 2024 All rights reserved | This Website is made for ITi
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="cart.js"></script>
+<script src="./productDetails.js"></script>
+<script src="./LoginScript.js"></script>
+
+</body>
+</html>

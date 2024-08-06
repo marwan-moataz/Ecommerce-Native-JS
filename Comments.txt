@@ -1,0 +1,154 @@
+ <!--
+      
+      <div class="detailsContent">
+        <div class="description">
+          <p>
+            Aenean sit amet gravida nisi. Nam fermentum est felis, quis feugiat
+            nunc fringilla sit amet. Ut in blandit ipsum. Quisque luctus dui at
+            ante aliquet, in hendrerit lectus interdum. Morbi elementum sapien
+            rhoncus pretium maximus. Nulla lectus enim, cursus et elementum sed,
+            sodales vitae eros. Ut ex quam, porta consequat interdum in,
+            faucibus eu velit. Quisque rhoncus ex ac libero varius molestie.
+            Aenean tempor sit amet orci nec iaculis. Cras sit amet nulla libero.
+            Curabitur dignissim, nunc nec laoreet consequat, purus nunc porta
+            lacus, vel efficitur tellus augue in ipsum. Cras in arcu sed metus
+            rutrum iaculis. Nulla non tempor erat. Duis in egestas nunc.
+          </p>
+        </div>
+
+        <div class="reviews">
+          <div class="reviewer">
+            <h2 class="reviewerName">Ariana Grande</h2>
+            <div class="rating">
+              <input value="5" name="rating" id="star5" type="radio">
+              <label for="star5"></label>
+              <input value="4" name="rating" id="star4" type="radio">
+              <label for="star4"></label>
+              <input value="3" name="rating" id="star3" type="radio">
+              <label for="star3"></label>
+              <input value="2" name="rating" id="star2" type="radio">
+              <label for="star2"></label>
+              <input value="1" name="rating" id="star1" type="radio">
+              <label for="star1"></label>
+            </div>
+                      </div>
+          <p class="comment">
+            Quod autem in homine praestantissimum atque optimum est, id
+            deseruit. Apud ceteros autem philosophos
+          </p>
+        </div>
+
+         <div class="newReview">
+          <div class="newReviewHeading">
+            <h2>Add a review</h2>
+            <h3>
+              Your email address will not be published. Required fields are
+              marked *
+            </h3>
+          </div>
+          <div class="newRating">
+            <h3>Your Rating</h3>
+            <div class="rating">
+              <input value="5" name="rating" id="star5" type="radio">
+              <label for="star5"></label>
+              <input value="4" name="rating" id="star4" type="radio">
+              <label for="star4"></label>
+              <input value="3" name="rating" id="star3" type="radio">
+              <label for="star3"></label>
+              <input value="2" name="rating" id="star2" type="radio">
+              <label for="star2"></label>
+              <input value="1" name="rating" id="star1" type="radio">
+              <label for="star1"></label>
+            </div>
+          </div>
+          <form action="POST" >
+            <div class="reviewBody">
+              <h3 for="reviewerComment">Your review</h3>
+              <textarea
+                name="reviewerComment"
+                id="reviewerComment"
+                cols="80"
+                rows="7"
+              ></textarea>
+            </div>
+            <div class="reviewerData">
+
+              <div class="reviewerName">
+                <h3 for="name">Name</h3>
+                <input type="text" name="" id="" />
+              </div>
+              <div class="reviewerEmail">
+                <h3 for="name">Email</h3>
+                <input type="email" name="" id="" />
+              </div>
+            </div>
+            <button type="submit" class="submitBtn">SUBMIT</button>
+          </form>
+        </div>
+      </div>
+      -->
+
+
+
+
+
+
+
+
+      ------------------------------------------------------------------------------------------
+      <div class="currDirectory">
+        <p>Products</p>
+        <i class="bx bx-chevron-right"></i>
+        <p>Product Category</p>
+        <i class="bx bx-chevron-right"></i>
+        <p>Product Name</p>
+      </div>
+      <div class="productEssintials">
+        <div class="productImages">
+          <aside>
+            <button>
+              <img
+                src="https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/1.png"
+                alt=""
+              />
+            </button>
+            <button>
+              <img
+                src="https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/2.png"
+                alt=""
+              />
+            </button>
+
+            <button>
+              <img
+                src="https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/3.png"
+                alt=""
+              />
+            </button>
+          </aside>
+          <div class="mainImage">
+            <img
+              src="https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/1.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="productInfo">
+          <div>
+            <h2 class="productName">Product Name</h2>
+            <h2 class="price">$58.79</h2>
+            <h3 class="description">
+              Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus
+              ligula. Mauris consequat ornare feugiat
+            </h3>
+          </div>
+          <form action="POST" class="numberOfItems">
+            <div class="quantity">
+              <button class="op">-</button>
+              <div class="qun">1</div>
+              <button class="op">+</button>
+            </div>
+            <button class="addBtn">ADD TO CART</button>
+          </form>
+        </div>
+      </div>
